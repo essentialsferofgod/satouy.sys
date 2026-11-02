@@ -1,5 +1,6 @@
 import { Instrument_Serif, Inter_Tight } from "next/font/google";
 import "./globals.css";
+import { profile } from "../lib/config";
 
 // ---------------------------------------------------------------------
 //  FONTES
@@ -29,9 +30,30 @@ const ui = Inter_Tight({
   display: "swap",
 });
 
+// Capa que aparece quando o link é enviado (Discord, WhatsApp, X...).
+// Para trocar, substitua /public/og.jpg (1200x630).
+const SITE_URL = "https://satouy-sys.vercel.app";
+const title = profile.name;
+const description = profile.phrases[0];
+
 export const metadata = {
-  title: "Satouy",
-  description: "The most valuable currency in the world is time.",
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: title,
+    type: "website",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: title }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {
