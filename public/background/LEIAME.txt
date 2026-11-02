@@ -1,0 +1,19 @@
+Coloque aqui a mídia de fundo.
+
+VÍDEO
+  Formato .mp4, codec H.264, sem áudio.
+  1920x1080, loop de 10 a 20 segundos, até 4 MB.
+  Gere também uma imagem de poster (primeiro quadro) em .jpg.
+
+  Em lib/config.js:
+    background = { kind: "video", src: "/background/loop.mp4", poster: "/background/loop.jpg", scrim: 0.5 }
+
+IMAGEM
+  .webp ou .jpg, 1920x1080. Um .webp animado também funciona.
+
+  Em lib/config.js:
+    background = { kind: "image", src: "/background/fundo.webp", scrim: 0.45 }
+
+SCRIM
+  É o véu escuro entre a mídia e o texto, de 0 a 1.
+  Se o texto ficar difícil de ler sobre o seu fundo, aumente.
